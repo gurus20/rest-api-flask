@@ -6,7 +6,8 @@ from controllers.auth_controllers import (
     ChangePasswordView,
     ForgotPasswordView,
     VerifyOTPView,
-    SendOTPView
+    SendOTPView,
+    VerifyEmailView
 )
 
 # Create a Blueprint object
@@ -37,6 +38,10 @@ bp.add_url_rule(
 bp.add_url_rule(
     f"{BASE_ENDPOINT}/forgot-password",
     view_func=ForgotPasswordView.as_view("forgot_password"))
+
+bp.add_url_rule(
+    f"{BASE_ENDPOINT}/verify-email",
+    view_func=VerifyEmailView.as_view("verify_email"))
 
 bp.add_url_rule(
     f"{BASE_ENDPOINT}/send-otp",
